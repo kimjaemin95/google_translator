@@ -9,3 +9,10 @@
 
 > 구글 번역 라이브러리 : googletrans
 
+
+
+### Installation
+- Flask
+```sh
+$ pip install Flask
+```
