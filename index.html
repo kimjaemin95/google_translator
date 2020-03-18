@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"></script>
+    <meta charset="UTF-8">
+    <title>구글번역기</title>
+</head>
+<style>
+    /*
+    css 주석 공간
+    css 속성,태그 등 검사 사이트 : https://caniuse.com/
+    box-sizing:border-box 를 지정해서 padding, line-height 등의 속성 때문에 전체 틀의 width값이 변경 되지 않도록 설정하는 것이 중요
+    absolute:절대적 위치 지정
+    margin : 위 오른 아래 왼쪽
+    */
+
+    * {
+        box-sizing:border-box;
+        font-size:22px;
+    }
+    .translator_box {
+        border:3px solid gray;
+        width:80%;
+        position:absolute;
+        top:20%;
+        left:50%;
+        margin : 0 0 0 -40%;
+
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+    .data_box {
+        border:3px solid red
+    }
+    textarea {
+        resize:none;
+        width:100%;
+        text-align:left;
+        padding:25px;
+        border:1px solid gray;
+    }
+    .result_box {
+        width:100%;
+        height:432px;
+        border:1px solid gray;
+    }
+    .box_footer {
+        border:1px solid blue;
+        width:100%;
+        height:50px;
+    }
+    .trans_btn {
+        border:none;
+        width:150px;
+        height:100%;
+        background-color:#A9F5A9;
+        margin:0px;
+        font-weight:600;
+    }
+    #page_title {
+       margin-top:100px;
+       font-size:30px;
+       font-weight:650;
+    }
+    select {
+        padding:10px;
+        font-weight:600
+    }
+</style>
+<body>
+<div>
+    <center>
+        <div id="page_title">구글 번역기 데모</div>
+    </center>
+    <div class="translator_box">
+        <div class="data_box">
+            <div>
+                <select name="trans_lang_input">
+                    <option value="detect" selected>언어감지</option>
+                    <option value="ko">한국어</option>
+                    <option value="en">영어</option>
+                    <option value="ja">일본어</option>
+                    <option value="zh-CN">중국어</option>
+                </select>
+            </div>
+            <div>
+                <textarea id="trans_text_input" rows="15" placeholder="번역할 내용을 입력하세요."></textarea>
+            </div>
+            <div class="box_footer">
+                <button class="trans_btn" onclick="trans_input_data()">번역하기</button>
+            </div>
+        </div>
+        <div class="data_box">
+            <div>
+                <select name="trans_lang_output">
+                    <option value="ko" selected>한국어</option>
+                    <option value="en">영어</option>
+                    <option value="ja">일본어</option>
+                    <option value="zh-CN">중국어</option>
+                </select>
+            </div>
+            <div>
+                <textarea id="result_textarea" rows="15" readonly placeholder="번역 완료"></textarea>
+            </div>
+            <div class="box_footer">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function trans_input_data(){
+        var trans_text_input = $("#trans_text_input").val();
+        var trans_lang_input = $("select[name='trans_lang_input']").val();
+        var trans_lang_output = $("select[name='trans_lang_output']").val();
+        alert(
+            '입력한 문자 : ' +
+            trans_text_input +'\n' +
+            '입력한 문자 언어 코드 : ' + trans_lang_input + '\n' +
+            '출력될 문자 언어 코드 : ' + trans_lang_output
+        );
+
+    }
+</script>
+</html>
