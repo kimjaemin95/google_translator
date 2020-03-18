@@ -16,3 +16,8 @@
 ```sh
 $ pip install Flask
 ```
+
+- 구글 번역 API(googletrans)
+```sh
+$ pip install googletrans
+```
