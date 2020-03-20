@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    *{
+        box-sizing:border-box;
+    }
+    .translator_box {
+        border:1px solid gray;
+        position:absolute;
+        width:80%;
+        top:30%;
+        left:50%;
+        margin:0 0 0 -40%;
+
+        display:grid;
+        grid-template-columns:1fr 1fr;
+    }
+    .data_box {
+        border:1px solid red;
+    }
+    textarea{
+        resize:none;
+        width:100%;
+        padding:20px;
+        font-size:23px;
+    }
+    select{
+        font-size:23px;
+        font-weight:600;
+        width:150px;
+        height:45px;
+        padding:5px;
+    }
+    .trans_btn{
+        width:150px;
+        height:35px;
+        font-size:23px;
+        font-weight:600;
+        background-color:#A9F5A9;
+        border:none;
+        margin-top:0px;
+    }
+</style>
+<body>
+    <div class="translator_box">
+        <div class="data_box">
+            <select name="trans_lang_input">
+                <option value="detect" selected>언어감지</option>
+                <option value="ko">한국어</option>
+                <option value="en">영어</option>
+                <option value="zh-CN">중국어</option>
+                <option value="jp">일본어</option>
+            </select>
+            <textarea name="trans_lang_input" rows="15" placeholder="번역할 문장을 입력하세요."></textarea>
+            <button class="trans_btn" onclick="trans_btn()">번역하기</button>
+        </div>
+        <div class="data_box">
+            <select name="trans_lang_output" >
+                <option value="ko" selected>한국어</option>
+                <option value="en">영어</option>
+                <option value="zh-CN" >중국어</option>
+                <option value="jp">일본어</option>
+            </select>
+            <textarea name="" rows="15" placeholder="번역 결과" readonly></textarea>
+        </div>
+    </div>
+</body>
+<script>
+    function trans_btn(){
+        var input_code = $("select[name='trans_lang_input']").val();
+        var output_code = $("select[name='trans_lang_output']").val();
+        var text = $("textarea[name='trans_lang_input']").val();
+    }
+</script>
+</html>
