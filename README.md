@@ -1,4 +1,4 @@
-# google_translator
+# python_google_translator
 
 
 ## 내용 : 구글 번역기 데모 페이지
